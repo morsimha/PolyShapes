@@ -35,12 +35,12 @@ public class MyShapesController{
     public void drawShapes() throws CloneNotSupportedException {
         Random rand = new Random();
         ArrayList<MyShape> shapes = new ArrayList <MyShape>();
-        MyLine line1 = new MyLine(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.DARKBLUE);
+        MyLine line1 = new MyLine(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED);
         MyLine line2 = new MyLine(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED);
-        MyRectangle rect1 = new MyRectangle(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, Color.BLACK);
-        MyRectangle rect2 = new MyRectangle(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, Color.BLACK);
-        MyOval oval1 = new MyOval(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, Color.BLACK);
-        MyOval oval2 = new MyOval(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, Color.BLACK);
+        MyRectangle rect1 = new MyRectangle(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, true);
+        MyRectangle rect2 = new MyRectangle(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, true);
+        MyOval oval1 = new MyOval(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, true);
+        MyOval oval2 = new MyOval(rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE),rand.nextInt(SIZE), Color.RED, true);
 
         MyLine copy = (MyLine) line1.clone();
       //  System.out.println(copy.color.);
@@ -63,24 +63,25 @@ public class MyShapesController{
 
         //TODO: use fill_oval and stuff
         for (int i= 0; i<2;i++){
-        gc.setFill(shapes.get(i).color); //choosing the right color for the cell
+        gc.setFill(shapes.get(i).getColor()); //choosing the right color for the cell
        // gc.setStroke(shapes.get(i).color);
-        gc.fillRect(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling inside color
+        gc.fillRect(0,0,10,10); //filling inside color
+     //   gc.fillRect(shapes.get(i).getX1(), shapes.get(i).getX2(), shapes.get(i).getY1(), shapes.get(i).getY2()); //filling inside color
       //  gc.strokeRect(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
         }
 
         for (int i= 2; i<4;i++){
-            gc.setFill(shapes.get(i).color); //choosing the right color for the cell
+            gc.setFill(shapes.get(i).getColor()); //choosing the right color for the cell
          //   gc.setStroke(shapes.get(i).color);
-            gc.fillOval(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling inside color
+            gc.fillOval(shapes.get(i).getX1(), shapes.get(i).getX2(), shapes.get(i).getY1(), shapes.get(i).getY2()); //filling inside color
           //  gc.strokeOval(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
         }
 
         for (int i= 4; i<6;i++){
         //    gc.setFill(shapes.get(i).color); //choosing the right color for the cell
-            gc.setStroke(shapes.get(i).color);
-            gc.moveTo(shapes.get(i).x1, shapes.get(i).x2);
-            gc.lineTo(shapes.get(i).y1, shapes.get(i).y2); //filling inside color
+            gc.setStroke(shapes.get(i).getColor());
+            gc.moveTo(shapes.get(i).getX1(), shapes.get(i).getX2());
+            gc.lineTo(shapes.get(i).getY1(), shapes.get(i).getY2()); //filling inside color
             gc.stroke(); //filling outline color
         }
 

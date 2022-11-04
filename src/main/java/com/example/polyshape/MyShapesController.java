@@ -59,33 +59,81 @@ public class MyShapesController{
         shapes.add(oval1);
         shapes.add(oval2);
 
+        gc.setLineWidth(2);
 
-
-        //TODO: use fill_oval and stuff
+        //lines:
         for (int i= 0; i<2;i++){
-        gc.setFill(shapes.get(i).getColor()); //choosing the right color for the cell
-       // gc.setStroke(shapes.get(i).color);
-        gc.fillRect(0,0,10,10); //filling inside color
-     //   gc.fillRect(shapes.get(i).getX1(), shapes.get(i).getX2(), shapes.get(i).getY1(), shapes.get(i).getY2()); //filling inside color
-      //  gc.strokeRect(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
-        }
-
-        for (int i= 2; i<4;i++){
-            gc.setFill(shapes.get(i).getColor()); //choosing the right color for the cell
-         //   gc.setStroke(shapes.get(i).color);
-            gc.fillOval(shapes.get(i).getX1(), shapes.get(i).getX2(), shapes.get(i).getY1(), shapes.get(i).getY2()); //filling inside color
-          //  gc.strokeOval(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
-        }
-
-        for (int i= 4; i<6;i++){
-        //    gc.setFill(shapes.get(i).color); //choosing the right color for the cell
+                //    gc.setFill(shapes.get(i).color); //choosing the right color for the cell
             gc.setStroke(shapes.get(i).getColor());
-            gc.moveTo(shapes.get(i).getX1(), shapes.get(i).getX2());
-            gc.lineTo(shapes.get(i).getY1(), shapes.get(i).getY2()); //filling inside color
-            gc.stroke(); //filling outline color
+
+            gc.moveTo(shapes.get(i).getX1(), shapes.get(i).getX2()); //Top left corner
+            gc.lineTo(shapes.get(i).getY1(), shapes.get(i).getY2()); //Bottom right corner
+            gc.stroke();
+
+
+        }
+        gc.setStroke(Color.BLACK);
+
+
+        //rects
+        for (int i= 2; i<4;i++){
+            //if (shapes.get(i).isFull())
+
+            gc.strokeRect(shapes.get(i).getX1(), shapes.get(i).getY1(), shapes.get(i).getX2(), shapes.get(i).getY2()); //filling outline color
+        //    gc.stroke();
+
+            gc.setFill(shapes.get(i).getColor());
+            gc.fillRect(shapes.get(i).getX1(), shapes.get(i).getY1(), shapes.get(i).getX2(), shapes.get(i).getY2()); //filling inside color
         }
 
-        rand.nextInt(SIZE);
+        //ovals
+        for (int i= 4; i<6;i++){
+        //  gc.setStroke(Color.BLACK);
+         //   gc.setLineWidth(2);
+            gc.strokeOval(shapes.get(i).getX1(), shapes.get(i).getY1(), shapes.get(i).getX2(), shapes.get(i).getY2()); //filling outline color
+            gc.setFill(shapes.get(i).getColor()); //choosing the right color for the cell
+            gc.fillOval(shapes.get(i).getX1(), shapes.get(i).getY1(), shapes.get(i).getX2(), shapes.get(i).getY2()); //filling inside color
+            //  gc.strokeRect(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
+        }
+
+        ArrayList<MyShape> clonedShapes = new ArrayList <>();
+
+        for (int i=0; i<shapes.size();i++){
+            clonedShapes.add((MyShape) shapes.get(i).clone());
+            clonedShapes.get(i).setX1(clonedShapes.get(i).getX1() + 10); //maybe add to curr x1 func
+            clonedShapes.get(i).setY1(clonedShapes.get(i).getY1() + 10);
+            clonedShapes.get(i).setColor(Color.GREEN);
+            //clonedShapes.get(i).makeEmpty();
+        }
+
+        //lines:
+        for (int i= 0; i<2;i++){
+            //    gc.setFill(shapes.get(i).color); //choosing the right color for the cell
+           // gc.setStroke(Color.YELLOW);
+            gc.setStroke(clonedShapes.get(i).getColor());
+            gc.moveTo(clonedShapes.get(i).getX1(), clonedShapes.get(i).getX2()); //Top left corner
+            gc.lineTo(clonedShapes.get(i).getY1(), clonedShapes.get(i).getY2()); //Bottom right corner
+            gc.stroke();
+        }
+
+        //rects
+        for (int i= 2; i<4;i++){
+            //if (shapes.get(i).isFull())
+            gc.setStroke(clonedShapes.get(i).getColor());
+            gc.strokeRect(clonedShapes.get(i).getX1(), clonedShapes.get(i).getY1(), clonedShapes.get(i).getX2(), clonedShapes.get(i).getY2()); //filling inside color
+            //  gc.strokeOval(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
+        }
+
+        //ovals
+        for (int i= 4; i<6;i++){
+            gc.setStroke(clonedShapes.get(i).getColor()); //choosing the right color for the cell
+            // gc.setStroke(shapes.get(i).color);
+            //gc.fillRect(0,0,10,10); //filling inside color
+            gc.strokeOval(clonedShapes.get(i).getX1(), clonedShapes.get(i).getY1(), clonedShapes.get(i).getX2(), clonedShapes.get(i).getY2()); //filling inside color
+            //  gc.strokeRect(shapes.get(i).x1, shapes.get(i).x2, shapes.get(i).y1, shapes.get(i).y2); //filling outline color
+        }
+
+
 
     }
 }

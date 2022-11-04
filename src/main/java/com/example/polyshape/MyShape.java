@@ -42,6 +42,28 @@ public abstract class MyShape implements Cloneable {
         return this.color;
     }
 
+    public void setX1(int num) {
+        this.x1 = num;
+    }
+
+    public void setX2(int num) {
+        this.x2 = num;
+    }
+
+    public void setY1(int num) {
+        this.y1 = num;
+    }
+
+    public void setY2(int num) {
+        this.y2 = num;
+    }
+
+    public void setColor(Paint color) {
+        this.color = color;
+    }
+
+
+
     public abstract boolean equals(Object other);
 
 

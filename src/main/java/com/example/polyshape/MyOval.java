@@ -10,17 +10,14 @@ public class MyOval extends MyBoundedShape {
         super(x1, x2, y1, y2, color, isFull);
     }
 
+    //choosing what will be drawn depends on isFull value.
     public void draw(GraphicsContext gc) {
-
-
-        if(isFull) {
-            gc.setFill(this.color);
+        super.draw(gc);
+        if(isFull)
             gc.fillOval(this.x1, this.x2, this.y1, this.y2); //filling inside color
-        }
-        else {
-            gc.setStroke(this.color);
+        else
             gc.strokeOval(this.x1, this.x2, this.y1, this.y2); //filling outline color
-        }
+
     }
 }
 

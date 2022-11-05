@@ -1,5 +1,6 @@
 package com.example.polyshape;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
 
 public abstract class MyBoundedShape extends MyShape {
@@ -12,21 +13,28 @@ public abstract class MyBoundedShape extends MyShape {
         this.isFull = isFull;
     }
 
-    public boolean isFull() {
-        return this.isFull;
-    }
-
-    public void makeEmpty() {
+    public void makeEmpty() { //Getter for MyBoundedShape, determine whether the shape should be filled or not.
         this.isFull = false;
     }
 
     @Override
     public boolean equals(Object other) {
-        if (other instanceof MyOval && this instanceof MyOval || other instanceof MyRectangle && this instanceof MyOval) { // Checks that the argument is indeed any kind of Expression
+        /*The object and the curr shape must be both either an oval or a rectangle.
+          if it's the case, check its height and width. */
+        if (other instanceof MyOval && this instanceof MyOval || other instanceof MyRectangle && this instanceof MyOval) {
             MyBoundedShape b = (MyBoundedShape) other; //Casting in order to compare
             return this.y1 == b.y1 && this.y2 == b.y2;
         }
         return false;
+    }
+
+    /*Depends on isFull, we choose if we want to set the fill or the stroke color.
+      This function will be inherited using super.*/
+    public void draw(GraphicsContext gc) {
+        if(isFull)
+            gc.setFill(this.color);
+        else
+            gc.setStroke(this.color);
     }
 
 

@@ -19,6 +19,7 @@ public abstract class MyShape implements Cloneable {
         this.color = color;
     }
 
+    //Getters and Setters
     public int getX1() {
         return this.x1;
     }
@@ -59,13 +60,12 @@ public abstract class MyShape implements Cloneable {
         this.color = color;
     }
 
-
+    //Both abstract functions must be implemented in children.
     public abstract void draw(GraphicsContext input);
-
 
     public abstract boolean equals(Object other);
 
-
+    //clone function is overridden with the CloneNotSupportedException addition.
     @Override
     protected Object clone () throws CloneNotSupportedException {
         return super.clone();

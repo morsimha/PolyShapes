@@ -3,6 +3,8 @@ package com.example.polyshape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
 
+import static java.lang.Math.round;
+
 public class MyLine extends MyShape {
 
     /* for MyLine x1 and y1 will represent the top left corner,
@@ -11,26 +13,25 @@ public class MyLine extends MyShape {
         super(x1, x2, y1, y2, color);
     }
 
-    public void draw(GraphicsContext gc) {
-
-        gc.setStroke(this.color);
-        gc.strokeLine(this.x1, this.y1, this.x2, this.y2);
-
-    }
-
-
     @Override
-    public boolean equals(Object other) { //TODO: change to doubles maybe
-        if ((other instanceof MyLine)) { // Checks that the argument is indeed any kind of Expression
+    public boolean equals(Object other) {
+        if ((other instanceof MyLine)) { // Checks that the argument is a Line.
             MyLine b = (MyLine) other; //Casting in order to compare
             return calcDistance(this) == calcDistance(b);
         }
         return false;
     }
 
-    public double calcDistance(MyLine l1) {
-        return Math.sqrt((l1.getX1() - l1.getX2()) * (l1.getX1() - l1.getX2()) + (l1.getY1() - l1.getY2()) * (l1.getY1() - l1.getY2()));
+    public double calcDistance(MyLine line) { //Calculating the line using the distance formula, and rounding the result.
+        return round(Math.sqrt((line.getX1() - line.getX2()) * (line.getX1() - line.getX2()) + (line.getY1() - line.getY2()) * (line.getY1() - line.getY2())));
     }
+
+    //Line is drawn using Stroke functions.
+    public void draw(GraphicsContext gc) {
+        gc.setStroke(this.color);
+        gc.strokeLine(this.x1, this.y1, this.x2, this.y2);
+    }
+
 
 }
 

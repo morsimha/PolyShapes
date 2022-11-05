@@ -56,7 +56,7 @@ public class MyShapesController{
                 ((MyBoundedShape) clonedShapes.get(i)).makeEmpty();
         }
 
-        for (int i=0; i<shapes.size();i++) { //drawing both lists shapes after the clone and changes
+        for (int i=0; i<shapes.size();i++) { //Drawing both lists shapes after the clone and changes
             shapes.get(i).draw(gc);
             clonedShapes.get(i).draw(gc);
         }

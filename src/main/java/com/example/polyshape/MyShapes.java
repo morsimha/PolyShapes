@@ -19,8 +19,3 @@ public class MyShapes extends Application {
         launch();
     }
 }
-
-
-//TODO: make equal works for non object maybe
-// comments
-//make similar loops the same maybe with a function.

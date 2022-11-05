@@ -10,7 +10,6 @@ public abstract class MyBoundedShape extends MyShape {
     public MyBoundedShape (int x1, int x2, int y1, int y2, Paint color, Boolean isFull){
         super(x1,x2,y1,y2,color);
         this.isFull = isFull;
-
     }
 
     public boolean isFull() {

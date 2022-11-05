@@ -4,16 +4,12 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
 
 public abstract class MyShape implements Cloneable {
-    // rectangle uses x,y than width and height
-    // but shapes uses x1,y1 and x2.y2
-    //put constructor in my shape
 
     protected int x1;
     protected int y1;
     protected int x2;
     protected int y2;
     protected Paint color;
-
 
     public MyShape (int x1,int x2,int y1,int y2, Paint color){
         this.x1 = x1;
@@ -64,7 +60,7 @@ public abstract class MyShape implements Cloneable {
     }
 
 
-    public abstract void draw(GraphicsContext input); //TODO: CHECK PERMISSIONS
+    public abstract void draw(GraphicsContext input);
 
 
     public abstract boolean equals(Object other);

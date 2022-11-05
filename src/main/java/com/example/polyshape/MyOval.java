@@ -12,13 +12,15 @@ public class MyOval extends MyBoundedShape {
 
     public void draw(GraphicsContext gc) {
 
-        gc.setFill(this.color);
 
-        if(isFull)
+        if(isFull) {
+            gc.setFill(this.color);
             gc.fillOval(this.x1, this.x2, this.y1, this.y2); //filling inside color
-        else
+        }
+        else {
+            gc.setStroke(this.color);
             gc.strokeOval(this.x1, this.x2, this.y1, this.y2); //filling outline color
-
+        }
     }
 }
 

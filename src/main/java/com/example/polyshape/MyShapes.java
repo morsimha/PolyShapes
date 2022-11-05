@@ -11,7 +11,7 @@ public class MyShapes extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MyShapes.fxml"));
         primaryStage.setTitle("MyShapes");
-        primaryStage.setScene(new Scene(root, 500, 525));
+        primaryStage.setScene(new Scene(root, 400, 400));
         primaryStage.show();
     }
 
@@ -19,3 +19,8 @@ public class MyShapes extends Application {
         launch();
     }
 }
+
+
+//TODO: make equal works for non object maybe
+// comments
+//make similar loops the same maybe with a function.

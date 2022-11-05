@@ -1,5 +1,6 @@
 package com.example.polyshape;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
 
 public abstract class MyShape implements Cloneable {
@@ -62,6 +63,8 @@ public abstract class MyShape implements Cloneable {
         this.color = color;
     }
 
+
+    public abstract void draw(GraphicsContext input); //TODO: CHECK PERMISSIONS
 
 
     public abstract boolean equals(Object other);

@@ -15,9 +15,9 @@ public class MyOval extends MyBoundedShape {
         gc.setFill(this.color);
 
         if(isFull)
-            gc.fillOval(this.x1, this.y1, this.x2, this.y2); //filling inside color
+            gc.fillOval(this.x1, this.x2, this.y1, this.y2); //filling inside color
         else
-            gc.strokeOval(this.x1, this.y1, this.x2, this.y2); //filling outline color
+            gc.strokeOval(this.x1, this.x2, this.y1, this.y2); //filling outline color
 
     }
 }

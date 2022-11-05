@@ -15,9 +15,9 @@ public class MyRectangle extends MyBoundedShape {
         gc.setFill(this.color);
 
         if(isFull)
-            gc.fillRect(this.x1, this.y1, this.x2, this.y2); //filling inside color
+            gc.fillRect(this.x1, this.x2, this.y1, this.y2); //filling inside color
         else
-            gc.strokeRect(this.x1, this.y1, this.x2, this.y2); //filling outline color
+            gc.strokeRect(this.x1, this.x2, this.y1, this.y2); //filling outline color
 
 
     }

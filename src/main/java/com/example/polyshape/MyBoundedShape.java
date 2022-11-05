@@ -23,7 +23,7 @@ public abstract class MyBoundedShape extends MyShape {
 
     @Override
     public boolean equals(Object other) {
-        if ((other instanceof MyBoundedShape)) { // Checks that the argument is indeed any kind of Expression
+        if (other instanceof MyOval && this instanceof MyOval || other instanceof MyRectangle && this instanceof MyOval) { // Checks that the argument is indeed any kind of Expression
             MyBoundedShape b = (MyBoundedShape) other; //Casting in order to compare
             return this.y1 == b.y1 && this.y2 == b.y2;
         }

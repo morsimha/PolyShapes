@@ -65,9 +65,9 @@ public abstract class MyShape implements Cloneable {
 
     public abstract boolean equals(Object other);
 
-    //clone function is overridden with the CloneNotSupportedException addition.
+    //Clone function is overridden with the CloneNotSupportedException addition.
     @Override
-    protected Object clone () throws CloneNotSupportedException {
+    public Object clone () throws CloneNotSupportedException { //TODO: ask hen about privacy for clone and the others
         return super.clone();
     }
 

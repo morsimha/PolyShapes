@@ -21,7 +21,7 @@ public abstract class MyBoundedShape extends MyShape {
     public boolean equals(Object other) {
         /*The object and the curr shape must be both either an oval or a rectangle.
           if it's the case, check its height and width. */
-        if (other instanceof MyOval && this instanceof MyOval || other instanceof MyRectangle && this instanceof MyOval) {
+        if (other instanceof MyOval && this instanceof MyOval || other instanceof MyRectangle && this instanceof MyRectangle) {
             MyBoundedShape b = (MyBoundedShape) other; //Casting in order to compare
             return this.y1 == b.y1 && this.y2 == b.y2;
         }
